@@ -2,23 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	
 		<url>
-		<loc>https://manelisim.vercel.app/</loc>
+			<loc>https://manelisim.vercel.app/404</loc>
+			<lastmod>2025-01-04</lastmod>
+			<changefreq>weekly</changefreq>
+			<priority>0.8</priority>
 		</url>
 	
 		<url>
-		<loc>https://manelisim.vercel.app/layout</loc>
+			<loc>https://manelisim.vercel.app/500</loc>
+			<lastmod>2025-01-04</lastmod>
+			<changefreq>weekly</changefreq>
+			<priority>0.8</priority>
 		</url>
 	
 		<url>
-		<loc>https://manelisim.vercel.app/loading</loc>
+			<loc>https://manelisim.vercel.app/</loc>
+			<lastmod>2025-01-04</lastmod>
+			<changefreq>daily</changefreq>
+			<priority>1.0</priority>
 		</url>
 	
 		<url>
-		<loc>https://manelisim.vercel.app/_app</loc>
+			<loc>https://manelisim.vercel.app/layout</loc>
+			<lastmod>2025-01-04</lastmod>
+			<changefreq>weekly</changefreq>
+			<priority>0.8</priority>
 		</url>
 	
 		<url>
-		<loc>https://manelisim.vercel.app/_document</loc>
+			<loc>https://manelisim.vercel.app/loading</loc>
+			<lastmod>2025-01-04</lastmod>
+			<changefreq>weekly</changefreq>
+			<priority>0.8</priority>
 		</url>
 	
 </urlset>

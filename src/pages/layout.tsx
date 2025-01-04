@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import useGlobalContext from "./context/GlobalContext";
+import { useGlobalContext } from "./context/GlobalContext";
 import Sitemap from "./components/sitemap";
 
 const geistSans = localFont({

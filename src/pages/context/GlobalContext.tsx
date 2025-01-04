@@ -60,5 +60,5 @@ const useGlobalContext = () => {
 	return context;
 };
 
-export { GlobalContext, GlobalProvider };
-export default useGlobalContext;
+export { GlobalContext, useGlobalContext };
+export default GlobalProvider;
