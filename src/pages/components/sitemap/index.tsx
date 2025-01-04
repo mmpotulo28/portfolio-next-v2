@@ -7,7 +7,6 @@ const Sitemap: React.FC = () => {
 	const fetchData = async () => {
 		try {
 			setRes("fetching sitemap endpoint");
-			console.log("fetching sitemap endpoint");
 			const response = await fetch("/api/sitemap", {
 				method: "GET",
 			});
