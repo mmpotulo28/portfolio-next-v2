@@ -1,42 +1,61 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	--background: #ffffff;
+	--foreground: #242424;
+	--theme-color: #2689cc;
+	--neutral-color: #82afce;
+	--fs-small: 16px;
+	--fs-medium: 18px;
+	--fs-large: 22px;
+	--fs-xlarge: 26px;
+	--fs-xxlarge: 30px;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body .dark {
+	--background: #242424;
+	--foreground: #ffffff;
+
+	color: var(--foreground);
+	background: var(--background);
+}
+
+body .light {
+	--foreground: #242424;
+	--background: #ffffff;
+
+	color: var(--foreground);
+	background: var(--background);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+	html {
+		color-scheme: dark;
+	}
+}
+.full-height {
+	min-height: 100vh;
 }

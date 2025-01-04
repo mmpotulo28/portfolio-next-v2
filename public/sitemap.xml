@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+		<url>
+		<loc>https://manelisim.vercel.app/</loc>
+		</url>
+	
+		<url>
+		<loc>https://manelisim.vercel.app/layout</loc>
+		</url>
+	
+		<url>
+		<loc>https://manelisim.vercel.app/loading</loc>
+		</url>
+	
+		<url>
+		<loc>https://manelisim.vercel.app/sitemap</loc>
+		</url>
+	
+		<url>
+		<loc>https://manelisim.vercel.app/_app</loc>
+		</url>
+	
+		<url>
+		<loc>https://manelisim.vercel.app/_document</loc>
+		</url>
+	
+</urlset>
