@@ -8,7 +8,7 @@ const ImageModal: React.FC = () => {
 	const { isImgModalOpen, imgModalData, closeImageModal } = useGlobalContext();
 
 	if (!isImgModalOpen) {
-		return null;
+		return <></>;
 	}
 
 	return (

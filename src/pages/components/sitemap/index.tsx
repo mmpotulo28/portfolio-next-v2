@@ -24,7 +24,8 @@ const Sitemap: React.FC = () => {
 
 	return (
 		<>
-			{res} <button onClick={fetchData}>generate</button>
+			<span>{res} </span>
+			<button onClick={fetchData}>generate</button>
 		</>
 	);
 };
