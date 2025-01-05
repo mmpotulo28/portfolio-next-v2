@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	FaFacebook,
 	FaTwitter,
@@ -14,6 +14,8 @@ import {
 	FaPhoneSquare,
 	FaGithub,
 	FaYoutube,
+	FaBars,
+	FaTimesCircle,
 } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,6 +24,7 @@ import styles from "./header.module.css";
 
 const Header = () => {
 	const { openImageModal } = useGlobalContext();
+	const [hideNav, setHideNav] = useState<boolean>(true);
 
 	if (typeof window !== "undefined") {
 	}
@@ -55,7 +58,13 @@ const Header = () => {
 			</div>
 
 			<div className={styles.mainNav}>
-				<div className={styles.navItems}>
+				<button
+					onBlur={() => setHideNav(true)}
+					onFocus={() => setHideNav(!hideNav)}
+					className={styles.toggleNav}>
+					{hideNav ? <FaBars /> : <FaTimesCircle />}
+				</button>
+				<div className={styles.navItems + " " + (hideNav && styles.hide)}>
 					<Link href="#home">
 						<FaHome /> <span>Home</span>
 					</Link>

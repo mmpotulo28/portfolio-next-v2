@@ -45,8 +45,8 @@ const Footer = () => {
 							{context.theme == "dark" ? <FaMoon /> : <FaSun />}
 						</button>
 					</li>
-					<li>Manelisi Mpotulo</li>
-					<li>Cape Town | SA</li>
+					<li className="hideOnMobile">Manelisi Mpotulo</li>
+					<li className="hideOnMobile">Cape Town | SA</li>
 					<li>Copyright &copy; {new Date().getFullYear()}</li>
 				</ul>
 				<Ticker messages={messages} />

@@ -97,6 +97,10 @@
 	transition: all 0.3s ease-in-out;
 }
 
+.mainNav .toggleNav {
+	display: none;
+}
+
 @media screen and (max-width: 800px) {
 	.mainNav .navItems a span {
 		display: none;
@@ -104,5 +108,94 @@
 
 	.mainNav .navItems a:hover span {
 		display: inline;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.mainNav .toggleNav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50px;
+		width: 50px;
+		margin-left: -30px;
+		font-size: var(--fs-large);
+		border: none;
+		background-color: transparent;
+		color: var(--foreground);
+	}
+
+	.mainNav .navItems.hide {
+		z-index: -1;
+		max-height: 0 !important;
+		min-height: 0 !important;
+		min-width: none !important;
+		margin-left: -50%;
+		overflow: hidden;
+		background-color: transparent;
+		color: transparent;
+	}
+
+	.mainNav .navItems {
+		margin-top: 55px;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--theme-color);
+		z-index: 2;
+		align-items: flex-start;
+		padding: 10px 10px;
+		position: absolute;
+		min-width: 90%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		border-radius: 0 0 10px 10px;
+		box-shadow: 2px 4px 5px var(--background);
+	}
+
+	.mainNav .navItems a {
+		height: 50px;
+		min-width: 100%;
+		z-index: 2;
+		justify-content: flex-start;
+	}
+
+	.mainNav .navItems a span {
+		display: inline;
+	}
+
+	.mainNav {
+		max-height: 60px;
+		align-items: flex-start;
+		position: relative;
+	}
+
+	.mainNav .navItems a:hover span {
+		display: inline;
+	}
+}
+
+/* responsive design */
+@media screen and (max-width: 600px) {
+	.topNav .contacts .contact span {
+		display: none;
+		position: absolute;
+		top: -20px;
+	}
+	.topNav .contacts .contact {
+		position: relative;
+	}
+
+	.topNav .contacts .contact i {
+		font-size: var(--fs-large) !important;
+	}
+
+	.topNav .contacts .contact:hover {
+		color: var(--theme-color);
+	}
+
+	.topNav .contacts .contact:hover span {
+		display: flex;
+		flex-wrap: nowrap;
+		color: var(--theme-color);
 	}
 }

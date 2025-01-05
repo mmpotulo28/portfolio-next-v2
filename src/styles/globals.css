@@ -51,6 +51,12 @@ a {
 	text-decoration: none;
 }
 
+@media screen and (max-width: 800px) {
+	.hideOnMobile {
+		display: none !important;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
