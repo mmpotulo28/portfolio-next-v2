@@ -47,6 +47,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		const routes = await getAllRoutes();
 		const sitemap = generateSiteMap(routes);
+		if (!fs.existsSync(path.dirname(SITEMAP_PATH))) {
+			fs.mkdirSync(path.dirname(SITEMAP_PATH), { recursive: true });
+		}
 		fs.writeFileSync(SITEMAP_PATH, sitemap);
 
 		res.setHeader("Content-Type", "application/xml");
