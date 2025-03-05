@@ -48,6 +48,7 @@
 	padding: 5px 40px;
 	width: 90%;
 	background-color: var(--theme-color);
+	color: white;
 	margin: 0 auto;
 	border-radius: 10px;
 	font-size: var(--fs-medium);
@@ -70,7 +71,6 @@
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
-	color: var(--foreground);
 	min-height: 40px;
 	border-radius: 10px;
 	padding: 0px 10px;
@@ -78,7 +78,7 @@
 }
 
 .mainNav .navItems a:hover {
-	background-color: var(--foreground);
+	background-color: var(--background);
 	color: var(--theme-color);
 }
 

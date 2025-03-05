@@ -69,5 +69,25 @@
 
 .selected {
 	background-color: #ffffcc;
-	color: #ffcc00;
+	color: #ffcc00 !important;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.pagination button {
+	padding: 5px 10px;
+	background-color: var(--theme-color);
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.pagination button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
 }

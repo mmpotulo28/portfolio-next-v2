@@ -6,7 +6,6 @@ import {
 	FaEnvelopeOpen,
 	FaPhone,
 	FaAddressBook,
-	FaBell,
 	FaHome,
 	FaProjectDiagram,
 	FaTools,
@@ -16,6 +15,7 @@ import {
 	FaYoutube,
 	FaBars,
 	FaTimesCircle,
+	FaCalendarCheck,
 } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
@@ -65,7 +65,7 @@ const Header = () => {
 					{hideNav ? <FaBars /> : <FaTimesCircle />}
 				</button>
 				<div className={styles.navItems + " " + (hideNav && styles.hide)}>
-					<Link href="#home">
+					<Link href="/">
 						<FaHome /> <span>Home</span>
 					</Link>
 					<Link href="#about">
@@ -82,9 +82,9 @@ const Header = () => {
 						<FaAddressBook />
 						<span>Contacts </span>
 					</Link>
-					<Link href="#updates">
-						<FaBell />
-						<span>Updates</span>
+					<Link href="/bookings">
+						<FaCalendarCheck />
+						<span>Book me</span>
 					</Link>
 				</div>
 

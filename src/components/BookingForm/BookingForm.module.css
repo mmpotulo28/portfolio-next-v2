@@ -32,6 +32,10 @@
 	color: #333;
 }
 
+.page select:disabled {
+	opacity: 0.5;
+}
+
 .form button {
 	padding: 12px;
 	background-color: var(--theme-color);

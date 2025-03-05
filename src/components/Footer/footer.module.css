@@ -19,7 +19,7 @@
 	align-items: center;
 	width: 100%;
 	background-color: var(--theme-color);
-	color: var(--foreground);
+	color: white;
 	padding: 10px 20px;
 	border-radius: 10px;
 	max-width: 90%;

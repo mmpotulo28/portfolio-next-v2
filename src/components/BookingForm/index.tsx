@@ -3,9 +3,14 @@ import styles from "./BookingForm.module.css";
 import { useBooking } from "@/context/BookingContext";
 
 const services = [
-	{ id: 1, name: "Service 1", rate: "$50" },
-	{ id: 2, name: "Service 2", rate: "$75" },
-	{ id: 3, name: "Service 3", rate: "$100" },
+	{ id: 1, name: "General Consultation", rate: "R30/hr" },
+	{ id: 2, name: "Java Tutoring", rate: "R250/hr" },
+	{ id: 2, name: "JavaScript Tutoring", rate: "R250/hr" },
+	{ id: 3, name: "IT Consultations", rate: "R60/hr" },
+	{ id: 4, name: "Software Installation", rate: "R50/hr" },
+	{ id: 5, name: "Device Troubleshooting", rate: "R70/hr" },
+	{ id: 6, name: "Network Setup", rate: "R80/hr" },
+	{ id: 7, name: "Other", rate: "N/A" },
 ];
 
 const timesOfDay = [
@@ -72,6 +77,23 @@ export default function BookingForm() {
 			setEndTimeOptions(timesOfDay);
 		}
 	}, [startTime]);
+
+	useEffect(() => {
+		if (startTime && endTime) {
+			const startIndex = timesOfDay.indexOf(startTime);
+			const endIndex = timesOfDay.indexOf(endTime);
+			for (let i = startIndex; i <= endIndex; i++) {
+				if (isTimeBooked(timesOfDay[i])) {
+					if (i === startIndex) {
+						setStartTime("");
+					} else {
+						setEndTime("");
+					}
+					break;
+				}
+			}
+		}
+	}, [startTime, endTime]);
 
 	const isTimeInRange = (time: string) => {
 		if (!startTime || !endTime) return false;
@@ -185,6 +207,7 @@ export default function BookingForm() {
 								name="startTime"
 								value={startTime}
 								onChange={handleStartTimeChange}
+								disabled={!selectedDate}
 								required>
 								<option value="">Select...</option>
 								{timesOfDay
@@ -202,6 +225,7 @@ export default function BookingForm() {
 								name="endTime"
 								value={endTime}
 								onChange={handleEndTimeChange}
+								disabled={!startTime}
 								required>
 								<option value="">Select...</option>
 								{endTimeOptions
