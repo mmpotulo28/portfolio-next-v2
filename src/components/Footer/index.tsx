@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./footer.module.css";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useGlobalContext } from "@/pages/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const Ticker = ({ messages }: { messages: string[] }) => {
 	return (

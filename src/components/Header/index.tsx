@@ -19,7 +19,7 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { useGlobalContext } from "@/pages/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import styles from "./header.module.css";
 
 const Header = () => {

@@ -1,0 +1,73 @@
+.availability {
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-left: 20px;
+	flex: 1;
+}
+
+.availability h2 {
+	text-align: center;
+	color: #333;
+}
+
+.week {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.calendar {
+	display: flex;
+	justify-content: space-between;
+}
+
+.day {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: #f9f9f9;
+	margin: 5px;
+	gap: 10px;
+}
+
+.day h3 {
+	text-align: center;
+	color: #333;
+	font-size: 16px;
+}
+
+.day ul {
+	list-style: none;
+	padding: 0;
+}
+
+.day li {
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
+	text-align: center;
+}
+
+.day li:last-child {
+	border-bottom: none;
+}
+
+.booked {
+	background-color: #ffcccc;
+	color: #ff0000;
+}
+
+.free {
+	background-color: #ccffcc;
+	color: #008000;
+}
+
+.selected {
+	background-color: #ffffcc;
+	color: #ffcc00;
+}

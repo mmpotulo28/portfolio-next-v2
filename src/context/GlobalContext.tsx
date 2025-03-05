@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode, useContext, useEffect } from "react";
-import ImageModal from "../components/ImageModal";
+import ImageModal from "@/components/ImageModal";
 
 interface GlobalContextProps {
 	isImgModalOpen: boolean;

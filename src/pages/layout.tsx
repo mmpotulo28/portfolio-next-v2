@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-import { useGlobalContext } from "./context/GlobalContext";
-import Sitemap from "./components/sitemap";
+import { useGlobalContext } from "@/context/GlobalContext";
+import Sitemap from "@/components/sitemap";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -26,7 +26,7 @@ export default function Layout({
 	return (
 		<div className={`${geistSans.variable} ${geistMono.variable} ${theme} full-height`}>
 			<Header />
-			<Sitemap />
+			{/* <Sitemap /> */}
 			{children}
 			<Footer />
 		</div>
