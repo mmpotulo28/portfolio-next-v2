@@ -66,7 +66,7 @@ export default function BookingForm() {
 	useEffect(() => {
 		if (startTime) {
 			const startIndex = timesOfDay.indexOf(startTime);
-			const maxEndIndex = Math.min(startIndex + 8, timesOfDay.length); // 8 slots = 2 hours
+			const maxEndIndex = Math.min(startIndex + 8, timesOfDay.length);
 			setEndTimeOptions(timesOfDay.slice(startIndex + 1, maxEndIndex + 1));
 		} else {
 			setEndTimeOptions(timesOfDay);
