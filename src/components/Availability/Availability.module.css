@@ -1,37 +1,39 @@
 .availability {
-	padding: 20px;
+	padding: 10px;
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	margin-left: 20px;
 	flex: 1;
+	margin-inline: auto;
+	overflow: hidden;
+	max-width: 100%;
 }
 
-.availability h2 {
-	text-align: center;
-	color: #333;
-}
-
-.week {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+.schedule {
+	display: block;
+	overflow-x: auto;
+	max-width: 100%;
+	width: fit-content;
+	scroll-margin-top: 20px;
+	scroll-margin-bottom: 20px;
 }
 
 .calendar {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(7, minmax(110px, 200px));
+	gap: 0px;
+	width: fit-content;
+	margin: 0 auto;
 }
 
 .day {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	padding: 10px;
-	border: 1px solid #ccc;
+	padding: 10px 5px;
+	border: 1px solid #ddd;
 	border-radius: 4px;
 	background-color: #f9f9f9;
-	margin: 5px;
 	gap: 10px;
 }
 

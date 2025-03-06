@@ -25,7 +25,7 @@ export default function Layout({
 		<div className={`${geistSans.variable} ${geistMono.variable} ${theme} full-height`}>
 			<Header />
 			{/* <Sitemap /> */}
-			{children}
+			<main>{children}</main>
 			<Footer />
 		</div>
 	);

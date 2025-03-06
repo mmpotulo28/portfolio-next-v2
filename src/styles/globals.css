@@ -51,6 +51,16 @@ a {
 	text-decoration: none;
 }
 
+.full-height {
+	min-height: 100vh;
+	background-color: red;
+}
+
+main {
+	min-height: 80vh;
+	display: grid;
+}
+
 @media screen and (max-width: 800px) {
 	.hideOnMobile {
 		display: none !important;
@@ -61,7 +71,4 @@ a {
 	html {
 		color-scheme: dark;
 	}
-}
-.full-height {
-	min-height: 100vh;
 }

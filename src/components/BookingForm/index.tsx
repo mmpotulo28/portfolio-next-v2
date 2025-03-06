@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styles from "./BookingForm.module.css";
 import { useBooking } from "@/context/BookingContext";
+import { timesOfDay, mockBookings } from "../Availability";
 
 const services = [
 	{ id: 1, name: "General Consultation", rate: "R30/hr" },
 	{ id: 2, name: "Java Tutoring", rate: "R250/hr" },
-	{ id: 2, name: "JavaScript Tutoring", rate: "R250/hr" },
+	{ id: 8, name: "JavaScript Tutoring", rate: "R250/hr" },
 	{ id: 3, name: "IT Consultations", rate: "R60/hr" },
 	{ id: 4, name: "Software Installation", rate: "R50/hr" },
 	{ id: 5, name: "Device Troubleshooting", rate: "R70/hr" },
@@ -13,44 +14,7 @@ const services = [
 	{ id: 7, name: "Other", rate: "N/A" },
 ];
 
-const timesOfDay = [
-	"18:00",
-	"18:15",
-	"18:30",
-	"18:45",
-	"19:00",
-	"19:15",
-	"19:30",
-	"19:45",
-	"20:00",
-	"20:15",
-	"20:30",
-	"20:45",
-	"21:00",
-	"21:15",
-	"21:30",
-	"21:45",
-];
-
-const mockBookings = [
-	{ date: "2023-10-01", time: "18:00" },
-	{ date: "2023-10-01", time: "18:15" },
-	{ date: "2023-10-02", time: "19:00" },
-	{ date: "2023-10-03", time: "20:00" },
-	{ date: "2023-10-03", time: "20:15" },
-	{ date: "2023-10-04", time: "18:30" },
-	{ date: "2023-10-04", time: "18:45" },
-	{ date: "2023-10-05", time: "19:30" },
-	{ date: "2023-10-05", time: "19:45" },
-	{ date: "2023-10-06", time: "20:30" },
-	{ date: "2023-10-06", time: "20:45" },
-	{ date: "2023-10-07", time: "21:00" },
-	{ date: "2023-10-07", time: "21:15" },
-	{ date: "2023-10-08", time: "21:30" },
-	{ date: "2023-10-08", time: "21:45" },
-];
-
-export default function BookingForm() {
+const BookingForm = () => {
 	const { selectedDate, setSelectedDate, startTime, setStartTime, endTime, setEndTime } =
 		useBooking();
 	const [selectedService, setSelectedService] = useState("");
@@ -62,6 +26,26 @@ export default function BookingForm() {
 	const [submitted, setSubmitted] = useState(false);
 	const [endTimeOptions, setEndTimeOptions] = useState<string[]>(timesOfDay);
 	const [bookings, setBookings] = useState<{ date: string; time: string }[]>([]);
+
+	const isTimeBooked = useCallback(
+		(time: string) => {
+			const dateBookings = bookings.filter((booking) => booking.date === selectedDate);
+			return dateBookings.some((booking) => booking.time === time);
+		},
+		[bookings, selectedDate],
+	);
+
+	const isTimeRangeBooked = useCallback(
+		(start: string, end: string) => {
+			const startIndex = timesOfDay.indexOf(start);
+			const endIndex = timesOfDay.indexOf(end);
+
+			// split the	array of timesOfDay into a subarray from startIndex to endIndex
+			const timeRange = timesOfDay.slice(startIndex, endIndex + 1);
+			return timeRange.some((time) => isTimeBooked(time));
+		},
+		[isTimeBooked],
+	);
 
 	useEffect(() => {
 		// Fetch bookings from an API or use mock data
@@ -93,7 +77,19 @@ export default function BookingForm() {
 				}
 			}
 		}
-	}, [startTime, endTime]);
+	}, [startTime, endTime, isTimeBooked, setStartTime, setEndTime]);
+
+	useEffect(() => {
+		if (startTime && endTime) {
+			if (isTimeRangeBooked(startTime, endTime)) {
+				alert(
+					"The selected time range overlaps with an existing booking. Please choose a different time range.",
+				);
+				setStartTime("");
+				setEndTime("");
+			}
+		}
+	}, [startTime, endTime, isTimeBooked, setStartTime, setEndTime, isTimeRangeBooked]);
 
 	const isTimeInRange = (time: string) => {
 		if (!startTime || !endTime) return false;
@@ -103,39 +99,36 @@ export default function BookingForm() {
 		return timeIndex >= startIndex && timeIndex <= endIndex;
 	};
 
-	const isTimeBooked = (time: string) => {
-		return bookings.some((booking) => booking.date === selectedDate && booking.time === time);
-	};
-
-	const handleServiceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+	function handleServiceChange(e: React.ChangeEvent<HTMLSelectElement>) {
 		setSelectedService(e.target.value);
-	};
+	}
 
-	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const { name, value } = e.target;
 		setUserInfo({ ...userInfo, [name]: value });
-	};
+	}
 
-	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	function handleDateChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setSelectedDate(e.target.value);
-	};
+	}
 
-	const handleStartTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+	function handleStartTimeChange(e: React.ChangeEvent<HTMLSelectElement>) {
 		setStartTime(e.target.value);
-	};
+	}
 
-	const handleEndTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+	function handleEndTimeChange(e: React.ChangeEvent<HTMLSelectElement>) {
 		setEndTime(e.target.value);
-	};
+	}
 
 	const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		if (isTimeRangeBooked(startTime, endTime)) {
+			alert(
+				"The selected time range overlaps with an existing booking. Please choose a different time range.",
+			);
+			return;
+		}
 		// Handle form submission
-		console.log("Service:", selectedService);
-		console.log("User Info:", userInfo);
-		console.log("Date:", selectedDate);
-		console.log("Start Time:", startTime);
-		console.log("End Time:", endTime);
 		setSubmitted(true);
 	};
 
@@ -155,7 +148,7 @@ export default function BookingForm() {
 							<select value={selectedService} onChange={handleServiceChange}>
 								<option value="">Select...</option>
 								{services.map((service) => (
-									<option key={service.id} value={service.name}>
+									<option key={`Service-${service.id}`} value={service.name}>
 										{service.name} - {service.rate}
 									</option>
 								))}
@@ -246,4 +239,6 @@ export default function BookingForm() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default BookingForm;
