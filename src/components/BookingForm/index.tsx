@@ -40,7 +40,7 @@ const BookingForm = () => {
 			const startIndex = timesOfDay.indexOf(start);
 			const endIndex = timesOfDay.indexOf(end);
 
-			// split the	array of timesOfDay into a subarray from startIndex to endIndex
+			// split the array of timesOfDay into a subarray from startIndex to endIndex
 			const timeRange = timesOfDay.slice(startIndex, endIndex + 1);
 			return timeRange.some((time) => isTimeBooked(time));
 		},
@@ -143,9 +143,14 @@ const BookingForm = () => {
 					</div>
 				) : (
 					<form onSubmit={handleSubmit} className={styles.form}>
-						<label>
+						<label htmlFor="service">
 							Select a service:
-							<select value={selectedService} onChange={handleServiceChange}>
+							<select
+								id="service"
+								value={selectedService}
+								onChange={handleServiceChange}
+								aria-label="Select a service"
+								required>
 								<option value="">Select...</option>
 								{services.map((service) => (
 									<option key={`Service-${service.id}`} value={service.name}>
@@ -154,53 +159,63 @@ const BookingForm = () => {
 								))}
 							</select>
 						</label>
-						<label>
+						<label htmlFor="name">
 							Name:
 							<input
 								type="text"
+								id="name"
 								name="name"
 								value={userInfo.name}
 								onChange={handleInputChange}
+								aria-label="Name"
 								required
 							/>
 						</label>
-						<label>
+						<label htmlFor="email">
 							Email:
 							<input
 								type="email"
+								id="email"
 								name="email"
 								value={userInfo.email}
 								onChange={handleInputChange}
+								aria-label="Email"
 								required
 							/>
 						</label>
-						<label>
+						<label htmlFor="phone">
 							Phone:
 							<input
 								type="tel"
+								id="phone"
 								name="phone"
 								value={userInfo.phone}
 								onChange={handleInputChange}
+								aria-label="Phone"
 								required
 							/>
 						</label>
-						<label>
+						<label htmlFor="date">
 							Date:
 							<input
 								type="date"
+								id="date"
 								name="date"
 								value={selectedDate}
 								onChange={handleDateChange}
+								aria-label="Date"
 								required
 							/>
 						</label>
-						<label>
+						<label htmlFor="startTime">
 							Start Time:
 							<select
+								id="startTime"
 								name="startTime"
 								value={startTime}
 								onChange={handleStartTimeChange}
 								disabled={!selectedDate}
+								aria-label="Start Time"
 								required>
 								<option value="">Select...</option>
 								{timesOfDay
@@ -212,13 +227,15 @@ const BookingForm = () => {
 									))}
 							</select>
 						</label>
-						<label>
+						<label htmlFor="endTime">
 							End Time:
 							<select
+								id="endTime"
 								name="endTime"
 								value={endTime}
 								onChange={handleEndTimeChange}
 								disabled={!startTime}
+								aria-label="End Time"
 								required>
 								<option value="">Select...</option>
 								{endTimeOptions
@@ -233,7 +250,9 @@ const BookingForm = () => {
 									))}
 							</select>
 						</label>
-						<button type="submit">Submit</button>
+						<button type="submit" aria-label="Submit">
+							Submit
+						</button>
 					</form>
 				)}
 			</div>
