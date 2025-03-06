@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Availability.module.css";
 import { useBooking } from "@/context/BookingContext";
 
