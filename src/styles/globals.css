@@ -1,7 +1,7 @@
 :root {
 	--background: #ffffff;
 	--foreground: #353535;
-	--theme-color: #460096;
+	--theme-color: rgb(0, 116, 116);
 	--neutral-color: #82afce;
 	--fs-small: 16px;
 	--fs-medium: 18px;
@@ -17,7 +17,7 @@ body {
 }
 
 body .dark {
-	--background: #181818;
+	--background: #000000;
 	--foreground: #ffffff;
 
 	color: var(--foreground);

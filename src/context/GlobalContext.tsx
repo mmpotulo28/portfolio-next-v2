@@ -15,13 +15,13 @@ const GlobalContext = createContext<GlobalContextProps | undefined>(undefined);
 const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [isImgModalOpen, setIsImgModalOpen] = useState(false);
 	const [imgModalData, setImgModalData] = useState({ src: "", alt: "" });
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState("light");
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-				? "dark"
-				: "dark";
+				? "light"
+				: "light";
 			setTheme(preferredTheme);
 		}
 	}, []);

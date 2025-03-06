@@ -5,6 +5,12 @@
 	flex: 1;
 }
 
+.page {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+}
+
 .page label {
 	display: flex;
 	flex-direction: column;
